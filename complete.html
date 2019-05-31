@@ -3,9 +3,10 @@
 <script>
  if (window.parent) {
 	if (/thirdparty=yes/.test(document.cookie)) {
-		window.parent.postMessage('MM:3PCsupported', '*');
+		
+		window.parent.postMessage({ type: 'MM:3PCsupported', search: window.location.search }, '*');
 	} else {
-		window.parent.postMessage('MM:3PCunsupported', '*');
+		window.parent.postMessage({ type: 'MM:3PCunsupported', search: window.location.search }, '*');
 	}
  }
 </script>
