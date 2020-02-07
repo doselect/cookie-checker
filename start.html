@@ -19,8 +19,8 @@
         };
 
         if(unsupportedSameSiteBrowsers[name] 
-            && version > unsupportedSameSiteBrowsers[name].min
-            && version < unsupportedSameSiteBrowsers[name].max
+            && version >= unsupportedSameSiteBrowsers[name].min
+            && version <= unsupportedSameSiteBrowsers[name].max
         ) {
             document.cookie = "thirdparty=yes;path=/;";
         } else {
