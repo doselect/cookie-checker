@@ -3,12 +3,13 @@
     <script>
         if (window.parent) {
             if (/thirdparty=yes/.test(document.cookie)) {
-
+		console.log("SUPPORTED", document.cookie);
                 window.parent.postMessage({
                     type: 'DS:3PCsupported',
                     search: window.location.search
                 }, '*');
             } else {
+		console.log("UNSUPPORTED", document.cookie);
                 window.parent.postMessage({
                     type: 'DS:3PCunsupported',
                     search: window.location.search
