@@ -22,9 +22,12 @@
             && version >= unsupportedSameSiteBrowsers[name].min
             && version <= unsupportedSameSiteBrowsers[name].max
         ) {
+            console.log("set non-secure");
             document.cookie = "thirdparty=yes;path=/;";
         } else {
-            document.cookie = "thirdparty=yes;path=/;SameSite=None;Secure;";
+            console.log("set secure & samesite");
+            document.cookie = "thirdparty=yes;path=/;";
+            // document.cookie = "thirdparty=yes;path=/;SameSite=None;Secure;";
         }
         window.location = "complete.html" + window.location.search;
     </script>
