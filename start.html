@@ -14,20 +14,18 @@
         var name = bowser.name;
         var version = parseFloat(bowser.version);
         var unsupportedSameSiteBrowsers = {
-            Chrome: { min: 51, max: 66},
-            Safari: { min: 8, max: 12 },
+            Chrome: { min: 51, max: 66 },
+            Firefox: { min: 2, max: 60 },
+            Safari: { min: 8, max: 13 },
         };
 
         if(unsupportedSameSiteBrowsers[name] 
             && version >= unsupportedSameSiteBrowsers[name].min
             && version <= unsupportedSameSiteBrowsers[name].max
         ) {
-            console.log("set non-secure");
             document.cookie = "thirdparty=yes;path=/;";
         } else {
-            console.log("set secure & samesite");
-            document.cookie = "thirdparty=yes;path=/;";
-            // document.cookie = "thirdparty=yes;path=/;SameSite=None;Secure;";
+            document.cookie = "thirdparty=yes;path=/;SameSite=None;Secure;";
         }
         window.location = "complete.html" + window.location.search;
     </script>
